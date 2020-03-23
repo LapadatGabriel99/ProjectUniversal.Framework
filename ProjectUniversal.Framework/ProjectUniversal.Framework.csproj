@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">  
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>ProjectUniversal</RootNamespace>
+    <Authors>Gabi Lapadat</Authors>
+    <Company>MLIandCorporate</Company>
+    <Description>A cross platform framework that works with all projects that use .Net Core</Description>
+    <PackageReleaseNotes>A cross platform framework that works with all projects that use .Net Core</PackageReleaseNotes>
+    <PackageTags>ProjectUniversal Framework Gabi Lapadat MLIandCorporate</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
+  </ItemGroup>
+
+</Project>
