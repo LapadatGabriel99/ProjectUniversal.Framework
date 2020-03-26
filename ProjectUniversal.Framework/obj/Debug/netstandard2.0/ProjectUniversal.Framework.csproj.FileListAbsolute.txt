@@ -1,8 +1,0 @@
-C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Debug\netstandard2.0\ProjectUniversal.Framework.deps.json
-C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Debug\netstandard2.0\ProjectUniversal.Framework.dll
-C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Debug\netstandard2.0\ProjectUniversal.Framework.pdb
-C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\obj\Debug\netstandard2.0\ProjectUniversal.Framework.csprojAssemblyReference.cache
-C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\obj\Debug\netstandard2.0\ProjectUniversal.Framework.AssemblyInfoInputs.cache
-C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\obj\Debug\netstandard2.0\ProjectUniversal.Framework.AssemblyInfo.cs
-C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\obj\Debug\netstandard2.0\ProjectUniversal.Framework.dll
-C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\obj\Debug\netstandard2.0\ProjectUniversal.Framework.pdb

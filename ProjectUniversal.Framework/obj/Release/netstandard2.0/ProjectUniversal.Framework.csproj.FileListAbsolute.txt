@@ -1,6 +1,7 @@
 C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Release\netstandard2.0\ProjectUniversal.Framework.deps.json
 C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Release\netstandard2.0\ProjectUniversal.Framework.dll
 C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Release\netstandard2.0\ProjectUniversal.Framework.pdb
+C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Release\netstandard2.0\ProjectUniversal.Framework.xml
 C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\obj\Release\netstandard2.0\ProjectUniversal.Framework.csprojAssemblyReference.cache
 C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\obj\Release\netstandard2.0\ProjectUniversal.Framework.AssemblyInfoInputs.cache
 C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\obj\Release\netstandard2.0\ProjectUniversal.Framework.AssemblyInfo.cs

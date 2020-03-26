@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjectUniversal.Framework</name>
+    </assembly>
+    <members>
+        <member name="T:ProjectUniversal.ArrayExtensions">
+            <sumary>
+             Extension methods for arrays
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.ArrayExtensions.Append``1(``0[],``0[])">
+            <summary>
+            Append the given objects to the original source array
+            </summary>
+            <typeparam name="T">The type of array</typeparam>
+            <param name="source">The original array of values</param>
+            <param name="toAdd">The values to append to the source</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.ArrayExtensions.Prepend``1(``0[],``0[])">
+            <summary>
+            Prepend the given objects to the original source array
+            </summary>
+            <typeparam name="T">The type of array</typeparam>
+            <param name="source">The original array of values</param>
+            <param name="toAdd">The values to prepend to the source</param>
+            <returns></returns>
+        </member>
+        <member name="T:ProjectUniversal.FrameworkEnvironment">
+            <sumary>
+             Details about the current system environment
+            </sumary>
+        </member>
+        <member name="P:ProjectUniversal.FrameworkEnvironment.IsDevelopment">
+            <summary>
+            True if we are in development environment
+            Naturally we want to presume we start in debug mode
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.FrameworkEnvironment.Configuration">
+            <summary>
+            The configuration of the environment
+            Either Development or Production
+            </summary>
+        </member>
+        <member name="M:ProjectUniversal.FrameworkEnvironment.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:ProjectUniversal.BaseExceptionHandler">
+            <sumary>
+             Handles all exceptions, simply logging them to the logger
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.BaseExceptionHandler.#ctor">
+            <sumary>
+            Default Constructor
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.BaseExceptionHandler.HandleError(System.Exception)">
+            <summary>
+            Logs the given error
+            </summary>
+            <param name="exception">The exception</param>
+        </member>
+        <member name="T:ProjectUniversal.IExceptionHandler">
+            <sumary>
+             Handles exceptions when they are caught and passed to the exception handler
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.IExceptionHandler.HandleError(System.Exception)">
+            <summary>
+            Handles the given exception
+            </summary>
+            <param name="exception">The exception to handle</param>
+        </member>
+        <member name="T:ProjectUniversal.DefaultFrameworkConstruction">
+            <sumary>
+             Creates a default framework construction containing all
+             the default configuration and services
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.DefaultFrameworkConstruction.#ctor">
+            <sumary>
+            Default Constructor
+            </sumary>
+        </member>
+        <member name="T:ProjectUniversal.FrameworkConstruction">
+            <sumary>
+             The construction information when starting up and configuring this framework
+            </sumary>
+        </member>
+        <member name="P:ProjectUniversal.FrameworkConstruction.Services">
+            <summary>
+            The services that will get used and compiled once the framework is built
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.FrameworkConstruction.Environment">
+            <summary>
+            The environment used for this framework
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.FrameworkConstruction.Configuration">
+            <summary>
+            The configuration used for this framework
+            </summary>
+        </member>
+        <member name="M:ProjectUniversal.FrameworkConstruction.#ctor">
+            <sumary>
+            Default Constructor
+            </sumary>
+        </member>
+        <member name="T:ProjectUniversal.Framework">
+            <sumary>
+             The main entry point into the ProjectUniversal Framework library
+            </sumary>
+        </member>
+        <member name="F:ProjectUniversal.Framework.ServiceProvider">
+            <summary>
+            The dependency injection service provider
+            (Similar to NInject, finds services we added and injects them)
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.Framework.Provider">
+            <summary>
+            The dependency injection service provider
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.Framework.Configuration">
+            <summary>
+            Gets the configuration 
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.Framework.Environment">
+            <summary>
+            Gets the framework 
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.Framework.Logger">
+            <summary>
+            Gets the default logger 
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.Framework.ExceptionHandler">
+            <summary>
+            Gets the frameworks exception handler
+            </summary>
+        </member>
+        <member name="M:ProjectUniversal.Framework.Build(ProjectUniversal.FrameworkConstruction)">
+            <summary>
+            Should be called once a framework construction is finished and we want to build it
+            and start our application
+            </summary>
+            <param name="frameworkConstruction">The construction</param>
+        </member>
+        <member name="T:ProjectUniversal.FrameworkExtensions">
+            <sumary>
+             Extension methods for the ProjectUniversal Framework
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.FrameworkExtensions.Configure(ProjectUniversal.FrameworkConstruction,System.Action{Microsoft.Extensions.Configuration.IConfigurationBuilder})">
+            <summary>
+            Configures a framework construction
+            </summary>
+            <param name="frameworkConstruction">The construction to configure</param>
+            <param name="configure">The custom configuration action</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.FrameworkExtensions.AddDefaultLogger(ProjectUniversal.FrameworkConstruction)">
+            <summary>
+            Injects the default logger into the framework construction        
+            </summary>
+            <param name="services">The construction</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.FrameworkExtensions.AddDefaultExceptionHandler(ProjectUniversal.FrameworkConstruction)">
+            <summary>
+            Injects the default exception handler into the framework construction
+            </summary>
+            <param name="frameworkConstruction">The construction</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.FrameworkExtensions.UseDefaultServices(ProjectUniversal.FrameworkConstruction)">
+            <summary>
+            Injects all of the default services used by this framework for a quicker and cleaner setup
+            </summary>
+            <param name="frameworkConstruction">The construction</param>
+            <returns></returns>
+        </member>
+        <member name="T:ProjectUniversal.FileLogger">
+            <sumary>
+             A logger that writes the logs to file
+            </sumary>
+        </member>
+        <member name="F:ProjectUniversal.FileLogger._categoryName">
+            <summary>
+            The category for this file logger
+            </summary>
+        </member>
+        <member name="F:ProjectUniversal.FileLogger._filePath">
+            <summary>
+            The file path to log to
+            </summary>
+        </member>
+        <member name="F:ProjectUniversal.FileLogger._configuration">
+            <summary>
+            The configuration to use
+            </summary>
+        </member>
+        <member name="M:ProjectUniversal.FileLogger.#ctor(System.String,System.String,ProjectUniversal.FileLoggerConfiguration)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="categoryName">The category for this file logger</param>
+            <param name="filePath">The file path to log to</param>
+            <param name="configuration">The configuration to use</param>
+        </member>
+        <member name="M:ProjectUniversal.FileLogger.BeginScope``1(``0)">
+            <summary>
+            File loggers are not scoped so this is always null
+            </summary>
+            <typeparam name="TState"></typeparam>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.FileLogger.IsEnabled(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            Enabled if the log level is the same or greater than the configuration
+            </summary>
+            <param name="logLevel">The log level to check against</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.FileLogger.Log``1(Microsoft.Extensions.Logging.LogLevel,Microsoft.Extensions.Logging.EventId,``0,System.Exception,System.Func{``0,System.Exception,System.String})">
+            <summary>
+            Logs the message to file
+            </summary>
+            <typeparam name="TState">The type of the details of the message</typeparam>
+            <param name="logLevel">The log level</param>
+            <param name="eventId">The Id</param>
+            <param name="state">The details of the message</param>
+            <param name="exception">Any exception to log</param>
+            <param name="formatter">The formatter for converting the state and exception to a message string</param>
+        </member>
+        <member name="T:ProjectUniversal.FileLoggerConfiguration">
+            <sumary>
+             The configuration for a <see cref="T:ProjectUniversal.FileLogger"/>
+            </sumary>
+        </member>
+        <member name="P:ProjectUniversal.FileLoggerConfiguration.LogLevel">
+            <summary>
+            The level of log that should be processed
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.FileLoggerConfiguration.LogTime">
+            <summary>
+            Whether to log the time as part of the message
+            </summary>
+        </member>
+        <member name="M:ProjectUniversal.FileLoggerConfiguration.#ctor">
+            <sumary>
+            Default Constructor
+            </sumary>
+        </member>
+        <member name="T:ProjectUniversal.FileLoggerExtensions">
+            <sumary>
+             Extension methods for the file logger
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.FileLoggerExtensions.AddFile(Microsoft.Extensions.Logging.ILoggingBuilder,System.String,ProjectUniversal.FileLoggerConfiguration)">
+            <summary>
+            Add a new file logger to the specific path
+            </summary>
+            <param name="builder">The log builder to add to</param>
+            <param name="path">The path where to write to</param>
+            <param name="configuration">The file logger configuration</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.FileLoggerExtensions.UseFileLogger(ProjectUniversal.FrameworkConstruction,System.String)">
+            <summary>
+            Injects a file logger into the framework construction
+            </summary>
+            <param name="frameworkConstruction">The construction</param>
+            <param name="logPath">The path to the file to log to</param>
+            <returns></returns>
+        </member>
+        <member name="T:ProjectUniversal.FileLoggerProvider">
+            <sumary>
+             Provides the ability to log to file
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.FileLoggerProvider.#ctor(System.String,ProjectUniversal.FileLoggerConfiguration)">
+            <summary>
+            Default Constructor
+            </summary>
+            <param name="path">The path to log to</param>
+            <param name="configuration">The configuration to use</param>
+        </member>
+        <member name="F:ProjectUniversal.FileLoggerProvider._filePath">
+            <summary>
+            The path to write to
+            </summary>
+        </member>
+        <member name="F:ProjectUniversal.FileLoggerProvider._configuration">
+            <summary>
+            The configuration to be used when creating file loggers
+            </summary>
+        </member>
+        <member name="F:ProjectUniversal.FileLoggerProvider._loggers">
+            <summary>
+            Keeps track of the logger already created
+            </summary>
+        </member>
+        <member name="M:ProjectUniversal.FileLoggerProvider.CreateLogger(System.String)">
+            <summary>
+            Creates a file logger based on the category name
+            </summary>
+            <param name="categoryName">The category name of this logger</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.FileLoggerProvider.Dispose">
+            <summary>
+            Disposes the list of loggers
+            </summary>
+        </member>
+        <member name="T:ProjectUniversal.LoggerExtensions">
+            <sumary>
+             Extension methods for a <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.LoggerExtensions.LogCriticalSource(Microsoft.Extensions.Logging.ILogger,System.String,Microsoft.Extensions.Logging.EventId,System.Exception,System.String,System.String,System.Int32,System.Object[])">
+            <summary>
+            Logs a critical message, including the source of the log
+            </summary>
+            <param name="logger">The logger</param>
+            <param name="message">The message</param>
+            <param name="origin">The caller's member function name</param>
+            <param name="filePath">The caller's source code file path</param>
+            <param name="lineNumber">The line number of the caller</param>
+            <param name="args">The additional arguments</param>
+        </member>
+        <member name="T:ProjectUniversal.LoggerSourceFormatter">
+            <sumary>
+             Formats a message when the callers source information is provided first in the arguments
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.LoggerSourceFormatter.Format(System.Object[],System.Exception)">
+            <summary>
+            Formats the message including the source information pulled out of the state
+            </summary>
+            <param name="state">The state information about the log</param>
+            <param name="exception">The exception</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

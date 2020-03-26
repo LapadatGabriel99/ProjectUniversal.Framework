@@ -8,6 +8,12 @@
     <Description>A cross platform framework that works with all projects that use .Net Core</Description>
     <PackageReleaseNotes>A cross platform framework that works with all projects that use .Net Core</PackageReleaseNotes>
     <PackageTags>ProjectUniversal Framework Gabi Lapadat MLIandCorporate</PackageTags>
+    <PackageProjectUrl>https://github.com/LapadatGabriel99/ProjectUniversal.Framework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/LapadatGabriel99/ProjectUniversal.Framework</RepositoryUrl>
+  </PropertyGroup>  
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\ProjectUniversal.Framework.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
