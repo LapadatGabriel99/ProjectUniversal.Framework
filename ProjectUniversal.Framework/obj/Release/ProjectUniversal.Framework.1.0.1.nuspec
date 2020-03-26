@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ProjectUniversal.Framework</id>
+    <version>1.0.1</version>
+    <authors>Gabi Lapadat</authors>
+    <owners>Gabi Lapadat</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/LapadatGabriel99/ProjectUniversal.Framework</projectUrl>
+    <description>A cross platform framework that works with all projects that use .Net Core</description>
+    <releaseNotes>A cross platform framework that works with all projects that use .Net Core</releaseNotes>
+    <tags>ProjectUniversal Framework Gabi Lapadat MLIandCorporate</tags>
+    <repository url="https://github.com/LapadatGabriel99/ProjectUniversal.Framework" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Microsoft.Extensions.Configuration" version="3.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.EnvironmentVariables" version="3.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="3.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="3.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection.Abstractions" version="3.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging" version="3.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging.Configuration" version="3.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging.Console" version="3.1.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging.Debug" version="3.1.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Release\netstandard2.0\ProjectUniversal.Framework.dll" target="lib\netstandard2.0\ProjectUniversal.Framework.dll" />
+    <file src="C:\Users\Gabriel\Documents\Visual Studio 2019\Projects\ProjectUniversal.Framework\ProjectUniversal.Framework\bin\Release\netstandard2.0\ProjectUniversal.Framework.xml" target="lib\netstandard2.0\ProjectUniversal.Framework.xml" />
+  </files>
+</package>

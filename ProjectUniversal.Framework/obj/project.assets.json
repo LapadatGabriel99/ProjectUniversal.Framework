@@ -1149,7 +1149,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\Gabriel\\Documents\\Visual Studio 2019\\Projects\\ProjectUniversal.Framework\\ProjectUniversal.Framework\\ProjectUniversal.Framework.csproj",
       "projectName": "ProjectUniversal.Framework",
