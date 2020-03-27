@@ -52,7 +52,7 @@ namespace ProjectUniversal
         /// <summary>
         /// Injects the default logger into the framework construction        
         /// </summary>
-        /// <param name="services">The construction</param>
+        /// <param name="frameworkConstruction">The construction</param>
         /// <returns></returns>
         public static FrameworkConstruction AddDefaultLogger(this FrameworkConstruction frameworkConstruction)
         {

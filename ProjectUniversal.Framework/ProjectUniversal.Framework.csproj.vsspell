@@ -6,11 +6,17 @@
   <SelectedLanguages />
   <InheritIgnoredClassifications>True</InheritIgnoredClassifications>
   <IgnoredClassifications />
-  <InheritIgnoredWords>True</InheritIgnoredWords>
+  <InheritIgnoredWords>False</InheritIgnoredWords>
   <IgnoredWords>
     <Ignore>Unhandled</Ignore>
+    <Ignore>xml</Ignore>
+    <Ignore>serializer</Ignore>
+    <Ignore>json</Ignore>
   </IgnoredWords>
   <InheritExclusionExpressions>True</InheritExclusionExpressions>
   <InheritIgnoredFilePatterns>True</InheritIgnoredFilePatterns>
   <InheritXmlSettings>True</InheritXmlSettings>
+  <IgnoredFilePatterns>
+    <FilePattern>serializer</FilePattern>
+  </IgnoredFilePatterns>
 </SpellCheckerConfiguration>

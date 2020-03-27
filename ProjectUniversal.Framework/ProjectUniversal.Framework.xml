@@ -172,7 +172,7 @@
             <summary>
             Injects the default logger into the framework construction        
             </summary>
-            <param name="services">The construction</param>
+            <param name="frameworkConstruction">The construction</param>
             <returns></returns>
         </member>
         <member name="M:ProjectUniversal.FrameworkExtensions.AddDefaultExceptionHandler(ProjectUniversal.FrameworkConstruction)">
@@ -351,6 +351,48 @@
             </summary>
             <param name="state">The state information about the log</param>
             <param name="exception">The exception</param>
+            <returns></returns>
+        </member>
+        <member name="T:ProjectUniversal.KnownContentSerializers">
+            <sumary>
+             Known content types that can be serialized and sent to a receiver
+            </sumary>
+        </member>
+        <member name="F:ProjectUniversal.KnownContentSerializers.Json">
+            <summary>
+            The data should be serialized to JSON
+            </summary>
+        </member>
+        <member name="F:ProjectUniversal.KnownContentSerializers.Xml">
+            <summary>
+            The data should be serialized to XML
+            </summary>
+        </member>
+        <member name="T:ProjectUniversal.KnownContentSerializersExtensions">
+            <sumary>
+             Extension methods for <see cref="T:ProjectUniversal.KnownContentSerializers"/>
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.KnownContentSerializersExtensions.ToMimeString(ProjectUniversal.KnownContentSerializers)">
+            <summary>
+            Takes a known serializer type and returns the Mime type associated with it
+            </summary>
+            <param name="serializer">The serializer</param>
+            <returns></returns>
+        </member>
+        <member name="T:ProjectUniversal.WebRequests">
+            <sumary>
+             Provides http calls for providing and receiving information from a http server
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.WebRequests.PostAsync(System.String,System.Object,ProjectUniversal.KnownContentSerializers,ProjectUniversal.KnownContentSerializers)">
+            <summary>
+            Posts a web request to and URL and returns the raw http web request
+            </summary>
+            <param name="url">The URL to post to</param>
+            <param name="content">The content to post</param>
+            <param name="sendType">The format to serialize the content into</param>
+            <param name="returnType">The expected type of content to be returned from the server</param>
             <returns></returns>
         </member>
     </members>
