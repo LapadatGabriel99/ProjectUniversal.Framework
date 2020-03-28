@@ -52,6 +52,7 @@ namespace ProjectUniversal
                 request.ContentLength = 0;
             }
             // Otherwise...
+            else
             {
                 // Create content to write
                 var contentString = string.Empty;
@@ -100,6 +101,98 @@ namespace ProjectUniversal
 
             // Return the raw server response
             return await request.GetResponseAsync() as HttpWebResponse;
+        }
+
+        /// <summary>
+        /// Posts a web request to an URL and returns of the expected data type
+        /// </summary>
+        /// <param name="url">The URL to post to</param>
+        /// <param name="content">The content to post</param>
+        /// <param name="sendType">The format to serialize the content into</param>
+        /// <param name="returnType">The expected type of content to be returned from the server</param>
+        /// <returns></returns>
+        public static async Task<WebRequestResult<TResponse>> PostAsync<TResponse>(
+            string url,
+            object content = null,
+            KnownContentSerializers sendType = KnownContentSerializers.Json,
+            KnownContentSerializers returnType = KnownContentSerializers.Json)
+        {
+            // Make standard Post call first
+            var serverResponse = await PostAsync(url, content, sendType, returnType);
+
+            // Create a result
+            var result = serverResponse.CreateWebRequestResult<TResponse>();
+
+            // If the response status code isn't equal to 200...
+            if(result.StatusCode != HttpStatusCode.OK)
+            {
+                // Call failed
+                // TODO: Localize string
+                result.ErrorMessage = $"Server returned unsuccessful status code, { result.StatusCode } { result.StatusDescription }";
+
+                // Done
+                return result;
+            }
+
+            // If we have no content to deserialize
+            if(result.RawServerResponse.IsNullOrEmpty())
+            {
+                // Done
+                return result;
+            }
+
+            try
+            {
+                // If the server response type was not the expected type...
+                if(!serverResponse.ContentType.ToLower().Contains(returnType.ToMimeString().ToLower()))
+                {
+                    // Failed due to unexpected return type
+                    result.ErrorMessage = $"Server did not return data in expected type.Expected { returnType.ToMimeString() }, receiver { serverResponse.ContentType }";
+
+                    // Done
+                    return result;
+                }
+
+                // Deserialize to Json?
+                if (returnType == KnownContentSerializers.Json)
+                {
+                    // Deserialize json string
+                    result.ServerResponse = JsonConvert.DeserializeObject<TResponse>(result.RawServerResponse);
+                }
+                // Deserialize to Xml?
+                else if(returnType == KnownContentSerializers.Xml)
+                {
+                    // Create xml serializer
+                    var xmlSerializer = new XmlSerializer(typeof(TResponse));
+
+                    // Create a memory stream for the raw string data
+                    using(var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(result.RawServerResponse)))
+                    {
+                        // Deserialize XML string
+                        result.ServerResponse = (TResponse)xmlSerializer.Deserialize(memoryStream);                        
+                    }
+                }
+                // Currently unknown
+                else
+                {
+                    result.ErrorMessage = "Unknown return type, cannot deserialize server response to the expected type";
+
+                    // Done
+                    return result;
+                }
+            }
+            catch(Exception ex)
+            {
+                // If deserialize failed
+                result.ErrorMessage = "Failed to deserialize server response to the expected type";
+
+                // Done
+                return result;
+            }
+
+            // Deserialize raw response
+
+            return result;
         }
     }
 }
