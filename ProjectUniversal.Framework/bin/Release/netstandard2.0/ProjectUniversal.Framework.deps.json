@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "ProjectUniversal.Framework/1.0.1": {
+      "ProjectUniversal.Framework/1.0.2": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "3.1.2",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "3.1.2",
@@ -355,7 +355,7 @@
     }
   },
   "libraries": {
-    "ProjectUniversal.Framework/1.0.1": {
+    "ProjectUniversal.Framework/1.0.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

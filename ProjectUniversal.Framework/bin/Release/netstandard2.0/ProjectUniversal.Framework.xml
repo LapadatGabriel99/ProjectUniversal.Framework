@@ -353,6 +353,39 @@
             <param name="exception">The exception</param>
             <returns></returns>
         </member>
+        <member name="T:ProjectUniversal.StringExtensions">
+            <sumary>
+             Extension methods for <see cref="T:System.String"/>
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            An extension method that determines if the given string is null or empty
+            Returns true if so
+            </summary>
+            <param name="content">The string to be checked</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.StringExtensions.IsNullOrWhitespace(System.String)">
+            <summary>
+            An extension method that determines if the given string is null or white space
+            Returns true if so
+            </summary>
+            <param name="content">The string to be checked</param>
+            <returns></returns>
+        </member>
+        <member name="T:ProjectUniversal.Utf8StringWriter">
+            <sumary>
+             A wrapper class for a <see cref="T:System.IO.StringWriter"/> to override
+             the encoding property so that it defaults to Utf8 instead of Utf16
+            </sumary>
+        </member>
+        <member name="P:ProjectUniversal.Utf8StringWriter.Encoding">
+            <summary>
+            Override the Encoding property of the base <see cref="T:System.IO.StringWriter"/>
+            to make it return a Utf8 encoding
+            </summary>
+        </member>
         <member name="T:ProjectUniversal.KnownContentSerializers">
             <sumary>
              Known content types that can be serialized and sent to a receiver
@@ -380,6 +413,80 @@
             <param name="serializer">The serializer</param>
             <returns></returns>
         </member>
+        <member name="T:ProjectUniversal.HttpWebResponseExtensions">
+            <sumary>
+             Extension methods for <see cref="T:System.Net.HttpWebResponse"/>
+            </sumary>
+        </member>
+        <member name="M:ProjectUniversal.HttpWebResponseExtensions.CreateWebRequestResult``1(System.Net.HttpWebResponse)">
+            <summary>
+            Returns a <see cref="T:ProjectUniversal.WebRequestResult`1"/> pre-populated with the <see cref="T:System.Net.HttpWebResponse"/> information
+            </summary>
+            <typeparam name="TResponse">The type of response to create</typeparam>
+            <param name="webResponse">The web/server response</param>
+            <returns></returns>
+        </member>
+        <member name="T:ProjectUniversal.WebRequestResult">
+            <sumary>
+             A web response from a call to get generic object data from a HTTP server
+            </sumary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.Successful">
+            <summary>
+            True... If the call was successful
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.ErrorMessage">
+            <summary>
+            If something failed, this is the error message
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.StatusCode">
+            <summary>
+            The status code
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.StatusDescription">
+            <summary>
+            The status description
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.ContentType">
+            <summary>
+            The type of content returned by the server
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.Headers">
+            <summary>
+            All the response headers
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.Cookies">
+            <summary>
+            Any cookies sent in the response
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.RawServerResponse">
+            <summary>
+            The raw server response body
+            </summary>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult.ServerResponse">
+            <summary>
+            The actual server response as an object
+            </summary>
+        </member>
+        <member name="T:ProjectUniversal.WebRequestResult`1">
+            <summary>
+            A web response from a call to get specific data from a HTTP server
+            </summary>
+            <typeparam name="T">The type of data to deserialize the raw body into</typeparam>
+        </member>
+        <member name="P:ProjectUniversal.WebRequestResult`1.ServerResponse">
+            <summary>
+            Cats the underlying object to the specified type
+            </summary>
+        </member>
         <member name="T:ProjectUniversal.WebRequests">
             <sumary>
              Provides http calls for providing and receiving information from a http server
@@ -388,6 +495,16 @@
         <member name="M:ProjectUniversal.WebRequests.PostAsync(System.String,System.Object,ProjectUniversal.KnownContentSerializers,ProjectUniversal.KnownContentSerializers)">
             <summary>
             Posts a web request to and URL and returns the raw http web request
+            </summary>
+            <param name="url">The URL to post to</param>
+            <param name="content">The content to post</param>
+            <param name="sendType">The format to serialize the content into</param>
+            <param name="returnType">The expected type of content to be returned from the server</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.WebRequests.PostAsync``1(System.String,System.Object,ProjectUniversal.KnownContentSerializers,ProjectUniversal.KnownContentSerializers)">
+            <summary>
+            Posts a web request to an URL and returns of the expected data type
             </summary>
             <param name="url">The URL to post to</param>
             <param name="content">The content to post</param>
