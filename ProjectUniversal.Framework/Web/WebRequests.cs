@@ -70,8 +70,8 @@ namespace ProjectUniversal
                     var xmlSerializer = new XmlSerializer(content.GetType());
 
                     // Create a string writer to receive the serialized string
-                    using(var stringWriter = new StringWriter())
-                    {                                                
+                    using(var stringWriter = new Utf8StringWriter())
+                    {                       
                         // Serialize the object to a string
                         xmlSerializer.Serialize(stringWriter, content);
 
@@ -97,7 +97,7 @@ namespace ProjectUniversal
                 }
             }
 
-            #endregion
+            #endregion          
 
             // Return the raw server response
             return await request.GetResponseAsync() as HttpWebResponse;
