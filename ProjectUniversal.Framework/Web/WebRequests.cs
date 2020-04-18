@@ -15,7 +15,7 @@ namespace ProjectUniversal
     public static class WebRequests
     {
         /// <summary>
-        ///  Gets a web request to an URL and returns the raw http web response
+        /// Gets a web request to an URL and returns the raw http web response
         /// </summary>
         /// <param name="url">The URL</param>
         /// <param name="configureRequest">Allows caller to customize and configure the request prior to the request being sent</param>

@@ -492,7 +492,16 @@
              Provides http calls for providing and receiving information from a http server
             </sumary>
         </member>
-        <member name="M:ProjectUniversal.WebRequests.PostAsync(System.String,System.Object,ProjectUniversal.KnownContentSerializers,ProjectUniversal.KnownContentSerializers)">
+        <member name="M:ProjectUniversal.WebRequests.GetAsync(System.String,System.Action{System.Net.HttpWebRequest},System.String)">
+            <summary>
+            Gets a web request to an URL and returns the raw http web response
+            </summary>
+            <param name="url">The URL</param>
+            <param name="configureRequest">Allows caller to customize and configure the request prior to the request being sent</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjectUniversal.WebRequests.PostAsync(System.String,System.Object,ProjectUniversal.KnownContentSerializers,ProjectUniversal.KnownContentSerializers,System.Action{System.Net.HttpWebRequest},System.String)">
             <summary>
             Posts a web request to and URL and returns the raw http web request
             </summary>
@@ -500,9 +509,11 @@
             <param name="content">The content to post</param>
             <param name="sendType">The format to serialize the content into</param>
             <param name="returnType">The expected type of content to be returned from the server</param>
+            <param name="configureRequest">Allows caller to customize and configure the request prior to the request being sent</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
             <returns></returns>
         </member>
-        <member name="M:ProjectUniversal.WebRequests.PostAsync``1(System.String,System.Object,ProjectUniversal.KnownContentSerializers,ProjectUniversal.KnownContentSerializers)">
+        <member name="M:ProjectUniversal.WebRequests.PostAsync``1(System.String,System.Object,ProjectUniversal.KnownContentSerializers,ProjectUniversal.KnownContentSerializers,System.Action{System.Net.HttpWebRequest},System.String)">
             <summary>
             Posts a web request to an URL and returns of the expected data type
             </summary>
@@ -510,6 +521,8 @@
             <param name="content">The content to post</param>
             <param name="sendType">The format to serialize the content into</param>
             <param name="returnType">The expected type of content to be returned from the server</param>
+            <param name="configureRequest">Allows caller to customize and configure the request prior to the request being sent</param>
+            <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
             <returns></returns>
         </member>
     </members>

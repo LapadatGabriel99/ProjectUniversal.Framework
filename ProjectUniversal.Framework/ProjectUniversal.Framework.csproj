@@ -10,7 +10,7 @@
     <PackageTags>ProjectUniversal Framework Gabi Lapadat MLIandCorporate</PackageTags>
     <PackageProjectUrl>https://github.com/LapadatGabriel99/ProjectUniversal.Framework</PackageProjectUrl>
     <RepositoryUrl>https://github.com/LapadatGabriel99/ProjectUniversal.Framework</RepositoryUrl>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>  
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
