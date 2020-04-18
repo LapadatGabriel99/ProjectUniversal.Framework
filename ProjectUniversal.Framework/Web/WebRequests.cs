@@ -15,18 +15,68 @@ namespace ProjectUniversal
     public static class WebRequests
     {
         /// <summary>
+        ///  Gets a web request to an URL and returns the raw http web response
+        /// </summary>
+        /// <param name="url">The URL</param>
+        /// <param name="configureRequest">Allows caller to customize and configure the request prior to the request being sent</param>
+        /// <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
+        /// <returns></returns>
+        public static async Task<HttpWebResponse> GetAsync(
+            string url, 
+            Action<HttpWebRequest> configureRequest = null, 
+            string bearerToken = null)
+        {
+            // Create the web request
+            var request = WebRequest.CreateHttp(url);
+
+            // Mark this request as a get
+            request.Method = HttpMethod.Get.ToString();
+
+            // If we have a bearer token...
+            if (bearerToken != null)
+            {
+                // Add bearer token to header
+                request.Headers.Add(HttpRequestHeader.Authorization, $"Bearer {bearerToken}");
+            }
+
+            // Check if there is any custom request
+            configureRequest?.Invoke(request);
+
+            try
+            {
+                // Return the raw server response
+                return await request.GetResponseAsync() as HttpWebResponse;
+            }
+            catch(WebException ex)
+            {
+                // If we got a response...
+                if (ex.Response is HttpWebResponse httpResponse)
+                    // Return the response
+                    return httpResponse;
+
+                // Otherwise, we don't have any information to be able to return
+                // So re-throw
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Posts a web request to and URL and returns the raw http web request
         /// </summary>
         /// <param name="url">The URL to post to</param>
         /// <param name="content">The content to post</param>
         /// <param name="sendType">The format to serialize the content into</param>
         /// <param name="returnType">The expected type of content to be returned from the server</param>
+        /// <param name="configureRequest">Allows caller to customize and configure the request prior to the request being sent</param>
+        /// <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
         /// <returns></returns>
         public static async Task<HttpWebResponse> PostAsync(
             string url, 
             object content = null, 
             KnownContentSerializers sendType = KnownContentSerializers.Json, 
-            KnownContentSerializers returnType = KnownContentSerializers.Json)
+            KnownContentSerializers returnType = KnownContentSerializers.Json,
+            Action<HttpWebRequest> configureRequest = null,
+            string bearerToken = null)
         {
             #region Setup
             
@@ -41,6 +91,16 @@ namespace ProjectUniversal
 
             // Set content type
             request.ContentType = sendType.ToMimeString();
+
+            // If we have a bearer token...
+            if (bearerToken != null)
+            {
+                // Add bearer token to header
+                request.Headers.Add(HttpRequestHeader.Authorization, $"Bearer {bearerToken}");
+            }
+
+            // Check if there is any custom request
+            configureRequest?.Invoke(request);
 
             #endregion
 
@@ -99,8 +159,22 @@ namespace ProjectUniversal
 
             #endregion          
 
-            // Return the raw server response
-            return await request.GetResponseAsync() as HttpWebResponse;
+            try
+            {
+                // Return the raw server response
+                return await request.GetResponseAsync() as HttpWebResponse;
+            }
+            catch(WebException ex)
+            {
+                // If we got a response...
+                if (ex.Response is HttpWebResponse httpResponse)
+                    // Return the response
+                    return httpResponse;
+
+                // Otherwise, we don't have any information to be able to return
+                // So re-throw
+                throw;
+            }
         }
 
         /// <summary>
@@ -110,15 +184,34 @@ namespace ProjectUniversal
         /// <param name="content">The content to post</param>
         /// <param name="sendType">The format to serialize the content into</param>
         /// <param name="returnType">The expected type of content to be returned from the server</param>
+        /// <param name="configureRequest">Allows caller to customize and configure the request prior to the request being sent</param>
+        /// <param name="bearerToken">If specified, provides the Authorization header with `bearer token-here` for things like JWT bearer tokens</param>
         /// <returns></returns>
         public static async Task<WebRequestResult<TResponse>> PostAsync<TResponse>(
             string url,
             object content = null,
             KnownContentSerializers sendType = KnownContentSerializers.Json,
-            KnownContentSerializers returnType = KnownContentSerializers.Json)
+            KnownContentSerializers returnType = KnownContentSerializers.Json,
+            Action<HttpWebRequest> configureRequest = null,
+            string bearerToken = null)
         {
-            // Make standard Post call first
-            var serverResponse = await PostAsync(url, content, sendType, returnType);
+            // Create server response holder
+            var serverResponse = default(HttpWebResponse);
+
+            try
+            {
+                // Make standard Post call first
+                serverResponse = await PostAsync(url, content, sendType, returnType, configureRequest, bearerToken);
+            }
+            catch (Exception ex)
+            {
+                // If we got unexpected error, return that
+                return new WebRequestResult<TResponse>
+                {
+                    // Include exception message
+                    ErrorMessage = ex.Message
+                };
+            }
 
             // Create a result
             var result = serverResponse.CreateWebRequestResult<TResponse>();
